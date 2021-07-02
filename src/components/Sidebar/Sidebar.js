@@ -8,14 +8,15 @@ import {dismissAlert} from '../../actions/alerts';
 import s from './Sidebar.module.scss';
 import LinksGroup from './LinksGroup';
 
+import {Image} from 'react-bootstrap';
 import {changeActiveSidebarItem} from '../../actions/navigation';
 import {logoutUser} from '../../actions/user';
 import HomeIcon from '../Icons/SidebarIcons/HomeIcon';
 import TypographyIcon from '../Icons/SidebarIcons/TypographyIcon';
 import TablesIcon from '../Icons/SidebarIcons/TablesIcon';
-import NotificationsIcon from '../Icons/SidebarIcons/NotificationsIcon';
+import ProfileIcon from '../Icons/SidebarIcons/NotificationsIcon';
 import ComponentsIcon from '../Icons/SidebarIcons/ComponentsIcon';
-
+import logo from './logo.png';
 
 
 class Sidebar extends React.Component {
@@ -77,9 +78,8 @@ class Sidebar extends React.Component {
                     this.element = nav;
                 }}
             >
-                <header className={s.logo}>
-                    <a href="https://demo.flatlogic.com/light-blue-react/">Light <span
-                        className="fw-bold">Blue</span></a>
+                <header className={s.logo} >
+                    <a href="https://demo.flatlogic.com/light-blue-react/"><Image src={logo} height='90'  /><span>New media art</span></a>
                 </header>
                 <ul className={s.nav}>
                     <LinksGroup
@@ -113,31 +113,31 @@ class Sidebar extends React.Component {
                     <LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
                         activeItem={this.props.activeItem}
-                        header="Notifications"
+                        header="Open Up"
                         isHeader
-                        iconName={<NotificationsIcon className={s.menuIcon}/>}
-                        link="/app/notifications"
-                        index="ui"
+                        iconName={<ComponentsIcon className={s.menuIcon}/>}
+                        link="/forms"
+                        index="components"
+                        childrenLinks={[
+                            {
+                                header: 'Form1', link: '/forms/AV',
+                            },
+                            {
+                                header: 'Form2 ', link: '/app/components/icons',
+                            },
+                            {
+                                header: 'Form3', link: '/app/components/maps',
+                            },
+                        ]}
                     />
                     <LinksGroup
                         onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
                         activeItem={this.props.activeItem}
-                        header="Components"
+                        header="Profile"
                         isHeader
-                        iconName={<ComponentsIcon className={s.menuIcon}/>}
-                        link="/app/components"
-                        index="components"
-                        childrenLinks={[
-                            {
-                                header: 'Charts', link: '/app/components/charts',
-                            },
-                            {
-                                header: 'Icons', link: '/app/components/icons',
-                            },
-                            {
-                                header: 'Maps', link: '/app/components/maps',
-                            },
-                        ]}
+                        iconName={<ProfileIcon className={s.menuIcon}/>}
+                        link="/app/notifications"
+                        index="ui"
                     />
                 </ul>
                 <h5 className={s.navTitle}>

@@ -150,57 +150,6 @@ class Header extends React.Component {
             </NavLink>
         </div>
         <div className={`d-print-none ${s.root}`}>
-          <UncontrolledAlert
-            className={`${s.alert} mr-3 d-lg-down-none animate__animated animate__bounceIn animate__delay-1s`}
-          >
-            Check out Light Blue{" "}
-            <button
-              className="btn-link"
-              onClick={() => this.setState({ settingsOpen: true })}
-            >
-              <SettingsIcon className={s.settingsIcon} />
-            </button>{" "}
-            on the right!
-          </UncontrolledAlert>
-          <Collapse
-            className={`${s.searchCollapse} ml-lg-0 mr-md-3`}
-            isOpen={this.state.searchOpen}
-          >
-            <InputGroup
-              className={`${s.navbarForm} ${
-                this.state.searchFocused ? s.navbarFormFocused : ""
-              }`}
-            >
-              <InputGroupAddon addonType="prepend" className={s.inputAddon}>
-                <InputGroupText>
-                  <i className="fa fa-search" />
-                </InputGroupText>
-              </InputGroupAddon>
-              <Input
-                id="search-input-2"
-                placeholder="Search..."
-                className="input-transparent"
-                onFocus={() => this.setState({ searchFocused: true })}
-                onBlur={() => this.setState({ searchFocused: false })}
-              />
-            </InputGroup>
-          </Collapse>
-          <Form className="d-md-down-none mr-3 ml-3" inline>
-            <FormGroup>
-              <InputGroup className={`input-group-no-border ${s.searchForm}`}>
-                <InputGroupAddon addonType="prepend">
-                  <InputGroupText className={s.inputGroupText}>
-                    <SearchIcon className={s.headerIcon} />
-                  </InputGroupText>
-                </InputGroupAddon>
-                <Input
-                  id="search-input"
-                  className="input-transparent"
-                  placeholder="Search Dashboard"
-                />
-              </InputGroup>
-            </FormGroup>
-          </Form>
 
           <Nav className="ml-md-0">
             <Dropdown
@@ -244,7 +193,6 @@ class Header extends React.Component {
               toggle={this.toggleMessagesDropdown}
             >
               <DropdownToggle nav className={`d-sm-down-none ${s.navItem} text-white`}>
-                <MessageIcon className={s.headerIcon} />
               </DropdownToggle>
               <DropdownMenu className={`${s.dropdownMenu} ${s.messages}`}>
                 <DropdownItem>

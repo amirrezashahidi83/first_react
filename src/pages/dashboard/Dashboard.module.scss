@@ -1,7 +1,12 @@
 @import '../../styles/app';
+.item{
+        background-color: #fff;
 
+}
 .root {
+
   :global {
+
     .post-comments footer {
       margin: 0 (-$widget-padding-horizontal) (-$widget-padding-vertical);
       padding: $widget-padding-vertical $widget-padding-horizontal;
